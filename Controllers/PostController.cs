@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using MyPersonalBlog.Data;
 using MyPersonalBlog.Models;
 using MyPersonalBlog.Dtos;
+using Microsoft.EntityFrameworkCore;
 
 namespace MyPersonalBlog.Controllers
 {
