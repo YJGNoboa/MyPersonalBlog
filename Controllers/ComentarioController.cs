@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyPersonalBlog.Data;
 using MyPersonalBlog.Dtos;
@@ -8,6 +9,7 @@ namespace MyPersonalBlog.Controllers
 {
     [ApiController]
     [Route("api/[Controller]")]
+    [Authorize]
     public class ComentarioController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
@@ -18,6 +20,7 @@ namespace MyPersonalBlog.Controllers
         }
 
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<ActionResult> GetById(int id)
         {
             var comentario = await _context.Comentarios.FindAsync(id);
@@ -28,6 +31,7 @@ namespace MyPersonalBlog.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<ActionResult> GetAll()
         {
             var comentario = await _context.Comentarios
@@ -37,6 +41,7 @@ namespace MyPersonalBlog.Controllers
             return Ok(comentario);
         }
         [HttpPost]
+        [AllowAnonymous]
         public async Task<ActionResult> Create(CrearComentarioDto dto)
         {
             var postExiste = await _context.Posts.AnyAsync(p => p.Id == dto.PostId);
@@ -69,6 +74,7 @@ namespace MyPersonalBlog.Controllers
             return Ok(comentarios);
         }
         [HttpPut("{id}")]
+        [AllowAnonymous]
         public async Task<ActionResult> Update(int id, ActualizarComentarioDto dto)
         {
             var updateComentario = await _context.Comentarios.FindAsync(id);

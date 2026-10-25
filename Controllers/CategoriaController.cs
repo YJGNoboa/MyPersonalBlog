@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyPersonalBlog.Data;
 using MyPersonalBlog.Dtos;
@@ -8,6 +9,7 @@ namespace MyPersonalBlog.Controllers
 {
     [ApiController]
     [Route("api/[Controller]")]
+    [Authorize]
     public class CategoriaController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
@@ -16,8 +18,9 @@ namespace MyPersonalBlog.Controllers
         {
             _context = context;
         }
-
+        
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<ActionResult> GetById(int id)
         {
             var categoria = await _context.Categories.FindAsync(id);
@@ -28,6 +31,7 @@ namespace MyPersonalBlog.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<ActionResult> GetAll()
         {
             var categorias = await _context.Categories

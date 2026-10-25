@@ -3,11 +3,13 @@ using MyPersonalBlog.Data;
 using MyPersonalBlog.Models;
 using MyPersonalBlog.Dtos;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MyPersonalBlog.Controllers
 {
     [ApiController]
     [Route("api/[Controller]")]
+    [Authorize]
     public class PostController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
@@ -18,6 +20,7 @@ namespace MyPersonalBlog.Controllers
         }
 
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<ActionResult> GetById(int id)
         {
             var post = await _context.Posts
@@ -30,6 +33,7 @@ namespace MyPersonalBlog.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<ActionResult> GetAll()
         {
             var posts = await _context.Posts.Include(p => p.Categoria).ToListAsync();
