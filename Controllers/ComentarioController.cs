@@ -74,7 +74,6 @@ namespace MyPersonalBlog.Controllers
             return Ok(comentarios);
         }
         [HttpPut("{id}")]
-        [AllowAnonymous]
         public async Task<ActionResult> Update(int id, ActualizarComentarioDto dto)
         {
             var updateComentario = await _context.Comentarios.FindAsync(id);
