@@ -14,7 +14,7 @@ namespace MyPersonalBlog.Models
         public string Contenido { get; set; } = string.Empty;
         public string Autor { get; set; } = string.Empty;
 
-        public DateTime FechaCreacion { get; set; } = DateTime.Now;
+        public DateTime FechaCreacion { get; set; } = DateTime.UtcNow;
 
         [Required(ErrorMessage = "Todo post debe pertenecer a una categoría.")]
         public int CategoriaId { get; set; }

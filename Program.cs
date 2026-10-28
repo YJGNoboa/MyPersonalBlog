@@ -6,8 +6,11 @@ using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+    ?? throw new InvalidOperationException("Falta la cadena de conexion 'DefaultConnection'");
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+options.UseNpgsql(connectionString));
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
