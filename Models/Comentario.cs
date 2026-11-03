@@ -14,7 +14,7 @@ namespace MyPersonalBlog.Models
         [StringLength(500, ErrorMessage = "El comentario no puede exceder los 500 caracteres.")]
         public string Contenido { get; set; } = string.Empty;
 
-        public DateTime FechaCreacion { get; set; } = DateTime.Now;
+        public DateTime FechaCreacion { get; set; } = DateTime.UtcNow;
 
         [Required]
         public int PostId { get; set; }
