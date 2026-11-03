@@ -209,4 +209,4 @@ MyPersonalBlog/
 
 **Yanel González** · Estudiante de Desarrollo de Software en el ITLA
 
-[GitHub](https://github.com/YJGNoboa) · [LinkedIn](https://www.linkedin.com/in/TU-USUARIO)
+[GitHub](https://github.com/YJGNoboa) · [LinkedIn](https://www.linkedin.com/in/yanelgonzalez/)
