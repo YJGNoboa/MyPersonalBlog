@@ -6,7 +6,7 @@ COPY MyPersonalBlog.csproj .
 RUN dotnet restore
 
 COPY . .
-RUN dotnet publish -c Release -o /app/publish
+RUN dotnet publish MyPersonalBlog.csproj -c Release -o /app/publish
 
 # ---------- Etapa 2: ejecutar ----------
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS final
