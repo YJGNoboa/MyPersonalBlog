@@ -483,3 +483,6 @@ $RECYCLE.BIN/
 
 # Base de datos local
 *.db
+
+# Variable de entorno
+docker.env
