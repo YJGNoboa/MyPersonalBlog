@@ -47,6 +47,13 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.MapGet("/", () => Results.Ok(new
+{
+    nombre = "MyPersonalBlog API",
+    estado = "Funcionando ",
+    endpoints = new[] { "/api/Post", "/api/Categoria", "/api/Comentario", "/api/Auth/login" }
+}));
 app.MapControllers();
+
 
 app.Run();
