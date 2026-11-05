@@ -3,6 +3,9 @@ using MyPersonalBlog.Data;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Scalar.AspNetCore;
+using MyPersonalBlog.OpenApi;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +16,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 options.UseNpgsql(connectionString));
 
 builder.Services.AddControllers();
-builder.Services.AddOpenApi();
+builder.Services.AddOpenApi(options =>
+{
+    options.AddDocumentTransformer<BearerSecuritySchemeTransformer>();
+});
 
 var jwtKey = builder.Configuration["Jwt:Key"]
     ?? throw new InvalidOperationException("Falta la configuración 'Jwt:Key'.");
@@ -37,11 +43,6 @@ builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-}
-
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
@@ -51,6 +52,7 @@ app.MapGet("/", () => Results.Ok(new
 {
     nombre = "MyPersonalBlog API",
     estado = "Funcionando ",
+    documentacion = "/scalar",
     endpoints = new[] { "/api/Post", "/api/Categoria", "/api/Comentario", "/api/Auth/login" }
 }));
 app.MapControllers();
