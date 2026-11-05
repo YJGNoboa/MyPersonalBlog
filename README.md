@@ -5,6 +5,7 @@ Permite gestionar posts, categorías y comentarios. La lectura es pública y la 
 
 🌐 **API en vivo:** [mypersonalblog-g5jb.onrender.com/api/Post](https://mypersonalblog-g5jb.onrender.com/api/Post)
 🖥️ **Blog en vivo:** [mypersonalblog-web.onrender.com](https://mypersonalblog-web.onrender.com) · Frontend en Razor Pages: [MyPersonalBlog.Web](https://github.com/YJGNoboa/MyPersonalBlog.Web)
+📖 **Documentación interactiva:** [mypersonalblog-g5jb.onrender.com/scalar](https://mypersonalblog-g5jb.onrender.com/scalar)
 
 > ⏳ La API está alojada en el plan gratuito de Render: si no recibe tráfico durante un tiempo, se suspende, y la primera petición puede tardar hasta un minuto en responder.
 
