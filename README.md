@@ -201,7 +201,7 @@ MyPersonalBlog/
 - [x] Migración a PostgreSQL
 - [x] Contenerización con Docker
 - [x] Despliegue en la nube (Render + Neon)
-- [ ] Documentación interactiva con Scalar
+- [x] Documentación interactiva con Scalar
 - [x] Frontend con Razor Pages ([MyPersonalBlog.Web](https://github.com/YJGNoboa/MyPersonalBlog.Web))
 - [ ] Pruebas automatizadas
 
