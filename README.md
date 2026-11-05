@@ -3,7 +3,8 @@
 API REST para un blog personal, desarrollada con **.NET 10**, **ASP.NET Core** y **Entity Framework Core** sobre **PostgreSQL**.
 Permite gestionar posts, categorías y comentarios. La lectura es pública y la administración está protegida con **autenticación JWT**.
 
-🌐 **Demo en vivo:** [mypersonalblog-g5jb.onrender.com/api/Post](https://mypersonalblog-g5jb.onrender.com/api/Post)
+🌐 **API en vivo:** [mypersonalblog-g5jb.onrender.com/api/Post](https://mypersonalblog-g5jb.onrender.com/api/Post)
+🖥️ **Blog en vivo:** [mypersonalblog-web.onrender.com](https://mypersonalblog-web.onrender.com) · Frontend en Razor Pages: [MyPersonalBlog.Web](https://github.com/YJGNoboa/MyPersonalBlog.Web)
 
 > ⏳ La API está alojada en el plan gratuito de Render: si no recibe tráfico durante un tiempo, se suspende, y la primera petición puede tardar hasta un minuto en responder.
 
@@ -200,7 +201,7 @@ MyPersonalBlog/
 - [x] Contenerización con Docker
 - [x] Despliegue en la nube (Render + Neon)
 - [ ] Documentación interactiva con Scalar
-- [ ] Frontend con Razor Pages
+- [x] Frontend con Razor Pages ([MyPersonalBlog.Web](https://github.com/YJGNoboa/MyPersonalBlog.Web))
 - [ ] Pruebas automatizadas
 
 ---
