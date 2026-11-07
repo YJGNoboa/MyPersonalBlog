@@ -31,7 +31,9 @@ namespace MyPersonalBlog.OpenApi
                     }
                 };
 
-                foreach (var operacion in document.Paths.Values.SelectMany(ruta => ruta.Operations))
+                foreach (var operacion in document.Paths.Values
+                    .Where(ruta => ruta.Operations is not null)
+                    .SelectMany(ruta => ruta.Operations!))
                 {
                     operacion.Value.Security ??= [];
                     operacion.Value.Security.Add(new OpenApiSecurityRequirement
